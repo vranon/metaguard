@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/beat-saber-modding-group/BSIPA-MetadataFileSchema/master/Schema.json",
+  "author": "Shadnix",
+  "description": [
+    "#![SaberTailor.Resources.description.md]",
+    "Customize stuff about your sabers"
+  ],
+  "gameVersion": "1.17.0",
+  "icon": "SaberTailor.Resources.icon.png",
+  "id": "SaberTailor",
+  "name": "SaberTailor",
+  "version": "3.5.0",
+  "dependsOn": {
+    "BSIPA": "^4.2.0"
+  },
+  "loadAfter": [
+    "BeatSaberMarkupLanguage",
+    "BS Utils"
+  ],
+  "links": {
+    "project-home": "https://github.com/Shadnix-was-taken/BeatSaber-SaberTailor/blob/master/readme.md",
+    "project-source": "https://github.com/Shadnix-was-taken/BeatSaber-SaberTailor"
+  }
+}

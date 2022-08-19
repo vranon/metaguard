@@ -1,0 +1,292 @@
+﻿<settings-container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <horizontal pref-width='90'>
+    <text text='SaberTailor Settings' font-size='5' align='Center'/>
+  </horizontal>
+
+  <!--Saber Grip-->
+  <settings-submenu text='→ Saber Grip Position/Rotation...' hover-hint='Adjust position and rotation of the sabers.'>
+    <settings-container>
+
+      <clickable-text text='⮌ Back' align='Left' click-event='back' />
+
+      <bool-setting text='Enable saber grip modification' value='saber-grip-tweak-enabled'
+                    apply-on-change='true' get-event="refresh-sabertailor-values"
+                    hover-hint='Enable/Disable any grip modifications.' />
+
+      <text text='Note: Enabling grip adjustments will disable the base game adjustments.'
+            font-size='4' color='#ff7f50' size-delta-y='8' />
+
+      <!--Saber Grip Menu-->
+      <bool-setting text='Enable Base Game Adjustment Mode' value='basegameadjustmentmode-enabled'
+                    apply-on-change='true' get-event='refresh-sabertailor-values'
+                    hover-hint='Switch between SaberTailor or base game adjustment mode. This changes how your grip settings are applied to the controller position.' />
+
+      <text text='Note: Base Game Adjustment Mode does not support world offset settings.'
+            font-size='4' color='#ff7f50' size-delta-y='8' />
+
+      <!--Saber Grip Left-->
+      <settings-submenu text='→ Left Saber Settings...' hover-hint='Adjust position and rotation of the left saber.'>
+        <scrollable-settings-container>
+          <horizontal>
+            <clickable-text text='⮌ Back' align='Left' click-event='back' />
+            <clickable-text text='Mirror to Right' align='Midline' click-event='mirror-grip-left-to-right' />
+            <clickable-text text='⭯ Revert' align='Right' click-event='reset-saber-config-grip-left' />
+          </horizontal>
+          
+          <increment-setting text='Pos X (Left/Right)' value='saber-left-position-x'
+                             apply-on-change='true' on-change='update-saber-position' get-event="refresh-sabertailor-position-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the saber left/right relative to the controller.' />
+
+          <increment-setting text='Pos Y (Down/Up)' value='saber-left-position-y'
+                             apply-on-change='true' on-change='update-saber-position' get-event="refresh-sabertailor-position-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the saber down/up relative to the controller.' />
+
+          <increment-setting text='Pos Z (Bwd./Fwd.)' value='saber-left-position-z'
+                             apply-on-change='true' on-change='update-saber-position' get-event="refresh-sabertailor-position-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the saber backwards/forwards relative to the controller.' />
+
+          <increment-setting text='Rot X (Up/Down)' value='saber-left-rotation-x'
+                             apply-on-change='true' on-change='update-saber-rotation' get-event="refresh-sabertailor-rotation-values"
+                             integer-only='true' min='~saber-rot-min' max='~saber-rot-max' increment='1'
+                             formatter='rotation-formatter' hover-hint='Tilts the saber up/down relative to the controller.' />
+
+          <increment-setting text='Rot Y (Left/Right)' value='saber-left-rotation-y'
+                             apply-on-change='true' on-change='update-saber-rotation' get-event="refresh-sabertailor-rotation-values"
+                             integer-only='true' min='~saber-rot-min' max='~saber-rot-max' increment='1'
+                             formatter='rotation-formatter' hover-hint='Rotates the saber left/right relative to the controller.' />
+
+          <increment-setting text='Rot Z (Saber axis)' value='saber-left-rotation-z'
+                             apply-on-change='true' on-change='update-saber-rotation' get-event="refresh-sabertailor-rotation-values"
+                             integer-only='true' min='~saber-rot-min' max='~saber-rot-max' increment='1'
+                             formatter='rotation-formatter' hover-hint='Rotates the saber around its own axis.' />
+
+          <increment-setting text='World Offset X (Left/Right)' value='saber-left-offset-x'
+                             apply-on-change='true' on-change='update-saber-offset' get-event="refresh-sabertailor-offset-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the controller left/right relative to the world. Does nothing in base game adjustment mode.' />
+
+          <increment-setting text='World Offset Y (Down/Up)' value='saber-left-offset-y'
+                             apply-on-change='true' on-change='update-saber-offset' get-event="refresh-sabertailor-offset-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the controller down/up relative to the world. Does nothing in base game adjustment mode.' />
+
+          <increment-setting text='World Offset Z (Bwd./Fwd.)' value='saber-left-offset-z'
+                             apply-on-change='true' on-change='update-saber-offset' get-event="refresh-sabertailor-offset-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the controller backwards/forwards relative to the world. Does nothing in base game adjustment mode.' />
+
+          <horizontal>
+            <clickable-text text='⮌ Back' align='Left' click-event='back' />
+            <clickable-text text='Mirror to Right' align='Midline' click-event='mirror-grip-left-to-right' />
+            <clickable-text text='⭯ Revert' align='Right' click-event='reset-saber-config-grip-left' />
+          </horizontal>
+        </scrollable-settings-container>
+      </settings-submenu>
+
+      <!--Saber Grip Right-->
+      <settings-submenu text='→ Right Saber Settings...' hover-hint='Adjust position and rotation of the right saber.'>
+        <scrollable-settings-container>
+          <horizontal>
+            <clickable-text text='⮌ Back' align='Left' click-event='back' />
+            <clickable-text text='Mirror to Left' align='Midline' click-event='mirror-grip-right-to-left' />
+            <clickable-text text='⭯ Revert' align='Right' click-event='reset-saber-config-grip-right' />
+          </horizontal>
+          
+          <increment-setting text='Pos X (Left/Right)' value='saber-right-position-x'
+                             apply-on-change='true' on-change='update-saber-position' get-event="refresh-sabertailor-position-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the saber left/right relative to the controller.' />
+
+          <increment-setting text='Pos Y (Down/Up)' value='saber-right-position-y'
+                             apply-on-change='true' on-change='update-saber-position' get-event="refresh-sabertailor-position-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the saber down/up relative to the controller.' />
+
+          <increment-setting text='Pos Z (Bwd./Fwd.)' value='saber-right-position-z'
+                             apply-on-change='true' on-change='update-saber-position' get-event="refresh-sabertailor-position-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the saber backwards/forwards relative to the controller.' />
+
+          <increment-setting text='Rot X (Up/Down)' value='saber-right-rotation-x'
+                             apply-on-change='true' on-change='update-saber-rotation' get-event="refresh-sabertailor-rotation-values"
+                             integer-only='true' min='~saber-rot-min' max='~saber-rot-max' increment='1'
+                             formatter='rotation-formatter' hover-hint='Tilts the saber up/down relative to the controller.' />
+
+          <increment-setting text='Rot Y (Left/Right)' value='saber-right-rotation-y'
+                             apply-on-change='true' on-change='update-saber-rotation' get-event="refresh-sabertailor-rotation-values"
+                             integer-only='true' min='~saber-rot-min' max='~saber-rot-max' increment='1'
+                             formatter='rotation-formatter' hover-hint='Rotates the saber left/right relative to the controller.' />
+
+          <increment-setting text='Rot Z (Saber axis)' value='saber-right-rotation-z'
+                             apply-on-change='true' on-change='update-saber-rotation' get-event="refresh-sabertailor-rotation-values"
+                             integer-only='true' min='~saber-rot-min' max='~saber-rot-max' increment='1'
+                             formatter='rotation-formatter' hover-hint='Rotates the saber around its own axis.' />
+          
+          <increment-setting text='World Offset X (Left/Right)' value='saber-right-offset-x'
+                             apply-on-change='true' on-change='update-saber-offset' get-event="refresh-sabertailor-offset-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the controller left/right relative to the world. Does nothing in base game adjustment mode.' />
+
+          <increment-setting text='World Offset Y (Down/Up)' value='saber-right-offset-y'
+                             apply-on-change='true' on-change='update-saber-offset' get-event="refresh-sabertailor-offset-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the controller down/up relative to the world. Does nothing in base game adjustment mode.' />
+
+          <increment-setting text='World Offset Z (Bwd./Fwd.)' value='saber-right-offset-z'
+                             apply-on-change='true' on-change='update-saber-offset' get-event="refresh-sabertailor-offset-values"
+                             integer-only='true' min='~saber-pos-min' max='~saber-pos-max' increment='1'
+                             formatter='position-formatter' hover-hint='Moves the controller backwards/forwards relative to the world. Does nothing in base game adjustment mode.' />
+
+          <horizontal>
+            <clickable-text text='⮌ Back' align='Left' click-event='back' />
+            <clickable-text text='Mirror to Left' align='Midline' click-event='mirror-grip-right-to-left' />
+            <clickable-text text='⭯ Revert' align='Right' click-event='reset-saber-config-grip-right' />
+          </horizontal>
+        </scrollable-settings-container>
+      </settings-submenu>
+
+      <!--Saber Grip Precision Settings-->
+      <settings-submenu text='→ Precision and other settings...' hover-hint='Change the increment precision for other settings.'>
+        <settings-container>
+          <horizontal>
+            <clickable-text text='⮌ Back' align='Left' click-event='back' />
+          </horizontal>
+          
+          <dropdown-list-setting text='Saber Position Inc. Unit' value='saber-pos-unit-value'
+                                 options='saber-pos-unit-options' apply-on-change='true'/>
+
+          <increment-setting text='Saber Position Increment' value='saber-pos-increment-value' get-event='refresh-sabertailor-position-values'
+                             apply-on-change='true' formatter='position-inc-formatter'
+                             integer-only='true' min='1' max='20' increment='1'/>
+
+          <increment-setting text='Saber Rotation Increment' value='saber-rot-increment-value'
+                             apply-on-change='true' formatter='rotation-formatter'
+                             integer-only='true' min='1' max='20' increment='1'/>
+
+          <dropdown-list-setting text='Saber Pos. Display Unit' value='saber-pos-display-unit-value' get-event='refresh-sabertailor-position-values'
+                                 options='saber-pos-display-unit-options' apply-on-change='true'/>
+
+          <bool-setting text='Menu hilt adjustments' value='menuhiltadjust-enabled' formatter='bool-formatter'
+                    apply-on-change='true' get-event='refresh-sabertailor-values'
+                    hover-hint='Enable to reposition the menu hilts the same way as the sabers.' />
+        </settings-container>
+      </settings-submenu>
+      
+    </settings-container>
+  </settings-submenu>
+
+  <!--Saber Scale-->
+  <settings-submenu text='→ Saber Scaling...' hover-hint='Adjust length and width of the sabers.'>
+    <settings-container>
+      <horizontal>
+        <clickable-text text='⮌ Back' align='Left' click-event='back' />
+        <clickable-text text='⭯ Revert' align='Right' click-event='reset-saber-config-scale' />
+      </horizontal>
+      
+      <bool-setting text='Enable saber scale modification' value='saber-scale-tweak-enabled'
+                    get-event="refresh-sabertailor-values"
+                    hover-hint='Enable/Disable any scale modifications.' />
+
+      <increment-setting text='Length (Default: 100%)' value='saber-scale-length'
+                         get-event="refresh-sabertailor-values"
+                         integer-only='true' min='5' max='500' increment='5'
+                         formatter='multiplier-formatter' hover-hint='Scales the saber length.' />
+
+      <increment-setting text='Width (Default: 100%)' value='saber-scale-girth'
+                         get-event="refresh-sabertailor-values"
+                         integer-only='true' min='5' max='500' increment='5'
+                         formatter='multiplier-formatter' hover-hint='Scales the saber width.' />
+
+      <text text='' font-size='2' size-delta-y='4' />
+      <bool-setting text='Scale hitbox' value='saber-scale-hitbox-enabled'
+                    get-event="refresh-sabertailor-values"
+                    hover-hint='Enable/Disable saber hit-box scaling.' />
+      <text text='Enabling hitbox scaling will disable score submission.'
+            font-size='5' color='#fb484e' size-delta-y='8' />
+
+    </settings-container>
+  </settings-submenu>
+
+  <!--Saber Trail-->
+  <settings-submenu text='→ Saber Trail...' hover-hint='Adjust trail settings for default trails.'>
+    <settings-container>
+      <horizontal>
+        <clickable-text text='⮌ Back' align='Left' click-event='back' />
+        <clickable-text text='⭯ Revert' align='Right' click-event='reset-saber-config-trail' />
+      </horizontal>
+      
+      <bool-setting text='Enable saber trail modification' value='saber-trail-tweak-enabled'
+                    get-event="refresh-sabertailor-values"
+                    hover-hint='Enable/Disable any trail modifications.' />
+
+      <bool-setting text='Enable saber trails' value='saber-trail-enabled'
+                    get-event="refresh-sabertailor-values"
+                    hover-hint='Currently only works with sabers using default trail.' />
+
+      <increment-setting text='Trail duration' value='saber-trail-duration'
+                         get-event="refresh-sabertailor-values" formatter='trail-time-formatter'
+                         integer-only='true' min='100' max='5000' increment='100'
+                         hover-hint='Adjusts trail duration in seconds. Only works with sabers using default trail. Default: 0.4s' />
+      
+      <increment-setting text='Trail granularity' value='saber-trail-granularity'
+                         get-event="refresh-sabertailor-values"
+                         integer-only='true' min='10' max='200' increment='10'
+                         hover-hint='Adjusts trail granularity in steps. Only works with sabers using default trail. Default: 60' />
+
+      <increment-setting text='Trail white section duration' value='saber-trail-whiteduration'
+                         get-event="refresh-sabertailor-values" formatter='trail-white-time-formatter'
+                         integer-only='true' min='0' max='2000' increment='50'
+                         hover-hint='Adjusts trail white section duration in seconds. Only works with sabers using default trail. Default: 0.1s' />
+
+    </settings-container>
+  </settings-submenu>
+
+  <!--Grip Export/Import-->
+  <settings-submenu text='→ Transfer grip to/from game settings...' hover-hint='Export/Import grip adjustments to/from base game options.'>
+    <settings-container>
+      <horizontal>
+        <clickable-text text='⮌ Back' align='Left' click-event='back' />
+      </horizontal>
+      <horizontal pref-width='90'>
+        <text text='Export/Import grip config to/from game.' align='Center' />
+      </horizontal>
+      <horizontal>
+        <button text='Export to game' align='Right' click-event='saber-grip-export' />
+        <button text='Import from game' align='Left' click-event='saber-grip-import' />
+      </horizontal>
+      <horizontal pref-width='90' pref-height='30'>
+        <text id='transfer-txt' text=' ' word-wrapping='true'></text>
+      </horizontal>
+    </settings-container>
+  </settings-submenu>
+
+  <!--Profile Management-->
+  <settings-submenu text='→ Manage config profiles...' hover-hint='Load/Save/Delete config profiles.'>
+    <settings-container>
+      <horizontal pref-width='90' spacing='35'>
+        <button text='⮌ Back' align='Left' click-event='back' />
+        <button text='Reload profile list' align='Right' click-event='profile-list-reload' />
+      </horizontal>
+      <horizontal>
+        <dropdown-list-setting text='Existing profiles:' value='profile-list-value' get-event='refresh-profile-list'
+                               options='profile-list-options' apply-on-change='true' id='ddl_profiles' />
+      </horizontal>
+      <horizontal pref-width='90' pad-right='30'>
+        <button text='Load profile' click-event='profile-load' />
+        <button text='Delete profile' click-event='profile-delete' />
+      </horizontal>
+      <horizontal>
+        <string-setting text='New profile name:' value='profile-save-name' apply-on-change='true' />
+      </horizontal>
+      <horizontal>
+        <button text='Save new profile' align='Midline' click-event='profile-save' />
+      </horizontal>
+      <horizontal pref-width='90' pref-height='30'>
+        <text id='profile-txt' text=' ' word-wrapping='true' />
+      </horizontal>
+    </settings-container>
+  </settings-submenu>
+</settings-container>
